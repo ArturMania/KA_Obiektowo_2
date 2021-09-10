@@ -10,14 +10,16 @@
 using namespace std;
 
 class PlikZUzytkownikami {
-    string nazwaPlikuZUzytkownikami;
-    fstream plikTekstowy;
+    // TWORZENIE STA£EJ GLOBALNEJ, WYMAGA LISTY INICJALIZACYJNEJ, CZYLI SPECYFICZNEGO KONSTRUKTORA
+    const string nazwaPlikuZUzytkownikami;
 
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 public:
-    PlikZUzytkownikami();
+    //LISTA INICJALIZACYJNA, INNY RODZAJ "KONSTRUKTORA"
+    PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI): nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};
+
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     //ZWRACANIE WEKTORA Z FUNKCJI
     vector<Uzytkownik> wczytajUzytkownikowZPliku();

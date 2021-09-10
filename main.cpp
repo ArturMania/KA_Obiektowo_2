@@ -6,7 +6,9 @@
 using namespace std;
 
 int main() {
-    KsiazkaAdresowa ksiazkaAdresowa;
+    //ZMIANA KONSTRUKTORA, MOZNA ZMIENIAC NAZWE PLIKU, BARDZIEJ UNIWERSALNE ROZWIAZANIE
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
+
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
