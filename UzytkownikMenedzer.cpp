@@ -58,7 +58,8 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow() {
 }
 
 void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
- plikZUzytkownikami.wczytajUzytkownikowZPliku(uzytkownicy);
+    // ZWRACANIE WERKTORA UZYTKOWNICY PRZEZ FUNKCJE
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
 
