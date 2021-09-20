@@ -24,4 +24,6 @@ public:
     //ZWRACANIE WEKTORA Z FUNKCJI
     vector<Uzytkownik> wczytajUzytkownikowZPliku();
 
+    void zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik>&uzytkownicy);
+
 };
