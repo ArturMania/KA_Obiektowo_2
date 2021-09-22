@@ -7,6 +7,8 @@ using namespace std;
 
 class KsiazkaAdresowa {
     UzytkownikMenedzer uzytkownikMenedzer;
+    AdresatMenedzer adresatMenedzer;
+    PlikZAdresatami plikZAdresatami;
 public:
     //LISTA INICJALIZACYJNA-PRZESY£ANIE STA£EJ NAZWY PLIKU POMIEDZY KLASAMI
     //W CIELE KONSTRUKTORA ZOSTALA METODA NA WCZYTYWANIE UZYTKOWNIKOW
@@ -22,4 +24,7 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wylogowanieUzytkownika();
+
+    void dodajAdresata();
+    void wypiszWszystkichAdresatow();
 };

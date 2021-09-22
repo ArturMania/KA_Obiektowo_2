@@ -1,3 +1,6 @@
+#include "PlikZAdresatami.h"
+
+using namespace std;
 
 PlikZAdresatami::PlikZAdresatami() {
     nazwaPlikuZAdresatami="KsiazkaAdresowa.txt";
@@ -6,6 +9,7 @@ PlikZAdresatami::PlikZAdresatami() {
 vector<Adresat> PlikZAdresatami::wczytajAdresatowZPliku() {
     Adresat adresat;
     vector<Adresat>adresaci;
+    //cout<<adresaci.size()<<endl;
     fstream plikTekstowy;
     string daneAdresataOddzielonePionowymiKreskami = "";
     plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
@@ -14,12 +18,12 @@ vector<Adresat> PlikZAdresatami::wczytajAdresatowZPliku() {
         while (getline(plikTekstowy, daneAdresataOddzielonePionowymiKreskami)) {
             adresat = pobierzDaneAdresata(daneAdresataOddzielonePionowymiKreskami);
             adresaci.push_back(adresat);
+                //cout<<adresaci.size()<<endl;
         }
     }
     plikTekstowy.close();
+    cout<<adresaci.size()<<endl<<endl;
     return adresaci;
-}
-
 }
 
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) {
@@ -36,6 +40,15 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 
+bool PlikZAdresatami::czyPlikJestPusty() {
+    fstream plikTekstowy;
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
+}
+
 
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
     string liniaZDanymiAdresata = "";
@@ -45,7 +58,7 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
     if (plikTekstowy.good() == true) {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (czyPlikJestPusty(plikTekstowy) == true) {
+        if (czyPlikJestPusty() == true) {
             plikTekstowy << liniaZDanymiAdresata;
         } else {
             plikTekstowy << endl << liniaZDanymiAdresata ;
@@ -68,25 +81,25 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
         } else {
             switch(numerPojedynczejDanejAdresata) {
             case 1:
-                adresat.ustawId() = atoi(pojedynczaDanaAdresata.c_str());
+                adresat.ustawId(atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 2:
-                adresat.ustawIdUzytkownika() = atoi(pojedynczaDanaAdresata.c_str());
+                adresat.ustawIdUzytkownika(atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 3:
-                adresat.ustawImie() = pojedynczaDanaAdresata;
+                adresat.ustawImie(pojedynczaDanaAdresata);
                 break;
             case 4:
-                adresat.ustawNazwisko() = pojedynczaDanaAdresata;
+                adresat.ustawNazwisko(pojedynczaDanaAdresata);
                 break;
             case 5:
-                adresat.ustawNumerTelefonu() = pojedynczaDanaAdresata;
+                adresat.ustawNumerTelefonu(pojedynczaDanaAdresata);
                 break;
             case 6:
-                adresat.ustawEmail() = pojedynczaDanaAdresata;
+                adresat.ustawEmail(pojedynczaDanaAdresata);
                 break;
             case 7:
-                adresat.ustawAdres() = pojedynczaDanaAdresata;
+                adresat.ustawAdres(pojedynczaDanaAdresata);
                 break;
             }
             pojedynczaDanaAdresata = "";
@@ -94,7 +107,4 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
         }
     }
     return adresat;
-}
-int PlikZAdresatami::idOstatniegoAdresata() {
-    return idOstatniegoAdresata;
 }

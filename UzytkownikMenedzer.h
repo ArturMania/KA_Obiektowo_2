@@ -30,3 +30,4 @@ public:
     int wylogowanieUzytkownika();
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 };
+

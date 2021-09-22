@@ -2,28 +2,30 @@
 
 using namespace std;
 
-Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata) {
+int AdresatMenedzer::pobierzIdOstatniegoAdresata() {
+    return idOstatniegoAdresata=adresaci.size();
+}
+
+Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;
 
-    adresat.id = ++idOstatniegoAdresata;
-    adresat.idUzytkownika = idZalogowanegoUzytkownika;
+    adresat.ustawId(pobierzIdOstatniegoAdresata()+1);
+    adresat.ustawIdUzytkownika(1);
 
     cout << "Podaj imie: ";
-    adresat.imie = wczytajLinie();
-    adresat.imie = zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.imie);
+    adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj nazwisko: ";
-    adresat.nazwisko = wczytajLinie();
-    adresat.nazwisko = zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.nazwisko);
+    adresat.ustawNazwisko(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj numer telefonu: ";
-    adresat.numerTelefonu = wczytajLinie();
+    adresat.ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj email: ";
-    adresat.email = wczytajLinie();
+    adresat.ustawEmail(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj adres: ";
-    adresat.adres = wczytajLinie();
+    adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
 
     return adresat;
 }
@@ -36,24 +38,29 @@ int AdresatMenedzer::pobierzIdNowegoAdresata() {
         return adresaci.back().pobierzId() + 1;
 }
 
-int AdresatMenedzer::dodajAdresata(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika, int idOstatniegoAdresata) {
+int AdresatMenedzer::dodajAdresata() {
     Adresat adresat;
 
     system("cls");
+    cout<<"ID Uzytkownika: "<<1<<endl;
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+    adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    dopiszAdresataDoPliku(adresat);
+    plikZAdresatami.dopiszAdresataDoPliku(adresat);
 
     return ++idOstatniegoAdresata;
 }
 
-void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
-    cout << endl << "Id:                 " << adresat.id << endl;
-    cout << "Imie:               " << adresat.imie << endl;
-    cout << "Nazwisko:           " << adresat.nazwisko << endl;
-    cout << "Numer telefonu:     " << adresat.numerTelefonu << endl;
-    cout << "Email:              " << adresat.email << endl;
-    cout << "Adres:              " << adresat.adres << endl;
+void AdresatMenedzer::wypiszWszystkichAdresatow() {
+        cout<<adresaci.size()<<endl<<endl;
+    for(int i=0; i<adresaci.size(); i++) {
+        cout<<adresaci[i].pobierzId()<<endl;
+        cout<<adresaci[i].pobierzIdUzytkownika()<<endl;
+        cout<<adresaci[i].pobierzImie()<<endl;
+        cout<<adresaci[i].pobierzNazwisko()<<endl;
+        cout<<adresaci[i].pobierzNumerTelefonu()<<endl;
+        cout<<adresaci[i].pobierzEmail()<<endl;
+        cout<<adresaci[i].pobierzAdres()<<endl;
+    }
 }

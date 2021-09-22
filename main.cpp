@@ -9,10 +9,12 @@ int main() {
     //ZMIANA KONSTRUKTORA, MOZNA ZMIENIAC NAZWE PLIKU, BARDZIEJ UNIWERSALNE ROZWIAZANIE
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 
-    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-    ksiazkaAdresowa.logowanieUzytkownika();
-    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    ksiazkaAdresowa.wylogowanieUzytkownika();
+    //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    //ksiazkaAdresowa.logowanieUzytkownika();
+    //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+    //ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.wypiszWszystkichAdresatow();
+    //ksiazkaAdresowa.wylogowanieUzytkownika();
     //ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     return 0;

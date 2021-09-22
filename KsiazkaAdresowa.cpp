@@ -19,3 +19,10 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
 void KsiazkaAdresowa::wylogowanieUzytkownika() {
     uzytkownikMenedzer.wylogowanieUzytkownika();
 }
+
+void KsiazkaAdresowa::dodajAdresata() {
+    adresatMenedzer.dodajAdresata();
+}
+void KsiazkaAdresowa::wypiszWszystkichAdresatow() {
+    adresatMenedzer.wypiszWszystkichAdresatow();
+}
