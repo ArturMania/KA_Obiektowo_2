@@ -1,51 +1,20 @@
-/*int wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika)
-{
-    Adresat adresat;
-    int idOstatniegoAdresata = 0;
-    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
-    string daneOstaniegoAdresataWPliku = "";
-    fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
 
-    if (plikTekstowy.good() == true)
-    {
-        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
-        {
-            if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
-            {
-                adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
-                adresaci.push_back(adresat);
-            }
-        }
-        daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
-    }
-    else
-        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+PlikZAdresatami::PlikZAdresatami() {
+    nazwaPlikuZAdresatami="KsiazkaAdresowa.txt";
+}
 
-    plikTekstowy.close();
-
-    if (daneOstaniegoAdresataWPliku != "")
-    {
-        idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
-        return idOstatniegoAdresata;
-    }
-    else
-        return 0;
-}*/
 vector<Adresat> PlikZAdresatami::wczytajAdresatowZPliku() {
     Adresat adresat;
     vector<Adresat>adresaci;
     fstream plikTekstowy;
     string daneAdresataOddzielonePionowymiKreskami = "";
-    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::in);
+    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
 
     if (plikTekstowy.good() == true) {
         while (getline(plikTekstowy, daneAdresataOddzielonePionowymiKreskami)) {
-            uzytkownik = pobierzDaneAdresata(daneAdresataOddzielonePionowymiKreskami);
+            adresat = pobierzDaneAdresata(daneAdresataOddzielonePionowymiKreskami);
             adresaci.push_back(adresat);
         }
-
-
     }
     plikTekstowy.close();
     return adresaci;
@@ -125,4 +94,7 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
         }
     }
     return adresat;
+}
+int PlikZAdresatami::idOstatniegoAdresata() {
+    return idOstatniegoAdresata;
 }

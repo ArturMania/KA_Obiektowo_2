@@ -1,6 +1,8 @@
+#include "AdresatMenedzer.h"
 
-Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
-{
+using namespace std;
+
+Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata) {
     Adresat adresat;
 
     adresat.id = ++idOstatniegoAdresata;
@@ -34,8 +36,7 @@ int AdresatMenedzer::pobierzIdNowegoAdresata() {
         return adresaci.back().pobierzId() + 1;
 }
 
-int AdresatMenedzer::dodajAdresata(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
-{
+int AdresatMenedzer::dodajAdresata(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika, int idOstatniegoAdresata) {
     Adresat adresat;
 
     system("cls");
@@ -48,8 +49,7 @@ int AdresatMenedzer::dodajAdresata(vector <Adresat> &adresaci, int idZalogowaneg
     return ++idOstatniegoAdresata;
 }
 
-void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat)
-{
+void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
     cout << endl << "Id:                 " << adresat.id << endl;
     cout << "Imie:               " << adresat.imie << endl;
     cout << "Nazwisko:           " << adresat.nazwisko << endl;
