@@ -8,14 +8,19 @@ using namespace std;
 int main() {
     //ZMIANA KONSTRUKTORA, MOZNA ZMIENIAC NAZWE PLIKU, BARDZIEJ UNIWERSALNE ROZWIAZANIE
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
+    //KsiazkaAdresowa ksiazkaAdresowa2("KsiazkaAdresowa.txt")
 
+    ksiazkaAdresowa.wczytajAdresatowZPliku();
+
+    //ksiazkaAdresowa.rejestracjaUzytkownika();
     //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     //ksiazkaAdresowa.logowanieUzytkownika();
     //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    //ksiazkaAdresowa.dodajAdresata();
+
+    ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.wypiszWszystkichAdresatow();
     //ksiazkaAdresowa.wylogowanieUzytkownika();
-    //ksiazkaAdresowa.rejestracjaUzytkownika();
+
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     return 0;
 }

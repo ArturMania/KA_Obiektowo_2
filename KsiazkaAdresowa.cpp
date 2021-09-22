@@ -1,5 +1,6 @@
 #include "KsiazkaAdresowa.h"
 
+//UZYTKOWNIK
 void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
@@ -20,9 +21,15 @@ void KsiazkaAdresowa::wylogowanieUzytkownika() {
     uzytkownikMenedzer.wylogowanieUzytkownika();
 }
 
+//ADRESAT
+void KsiazkaAdresowa::wczytajAdresatowZPliku() {
+    adresatMenedzer.wczytajAdresatowZPliku();
+}
+
 void KsiazkaAdresowa::dodajAdresata() {
     adresatMenedzer.dodajAdresata();
 }
+
 void KsiazkaAdresowa::wypiszWszystkichAdresatow() {
     adresatMenedzer.wypiszWszystkichAdresatow();
 }

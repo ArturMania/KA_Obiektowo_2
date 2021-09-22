@@ -2,6 +2,9 @@
 
 using namespace std;
 
+void AdresatMenedzer::wczytajAdresatowZPliku() {
+    adresaci = plikZAdresatami.wczytajAdresatowZPliku();
+}
 int AdresatMenedzer::pobierzIdOstatniegoAdresata() {
     return idOstatniegoAdresata=adresaci.size();
 }
@@ -9,7 +12,7 @@ int AdresatMenedzer::pobierzIdOstatniegoAdresata() {
 Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;
 
-    adresat.ustawId(pobierzIdOstatniegoAdresata()+1);
+    adresat.ustawId(pobierzIdNowegoAdresata());
     adresat.ustawIdUzytkownika(1);
 
     cout << "Podaj imie: ";
@@ -49,11 +52,10 @@ int AdresatMenedzer::dodajAdresata() {
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
 
-    return ++idOstatniegoAdresata;
+    return idOstatniegoAdresata++;
 }
 
 void AdresatMenedzer::wypiszWszystkichAdresatow() {
-        cout<<adresaci.size()<<endl<<endl;
     for(int i=0; i<adresaci.size(); i++) {
         cout<<adresaci[i].pobierzId()<<endl;
         cout<<adresaci[i].pobierzIdUzytkownika()<<endl;
@@ -61,6 +63,6 @@ void AdresatMenedzer::wypiszWszystkichAdresatow() {
         cout<<adresaci[i].pobierzNazwisko()<<endl;
         cout<<adresaci[i].pobierzNumerTelefonu()<<endl;
         cout<<adresaci[i].pobierzEmail()<<endl;
-        cout<<adresaci[i].pobierzAdres()<<endl;
+        cout<<adresaci[i].pobierzAdres()<<endl<<endl;
     }
 }

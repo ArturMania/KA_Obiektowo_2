@@ -21,9 +21,10 @@ class AdresatMenedzer {
     int pobierzIdNowegoAdresata();
     int pobierzIdOstatniegoAdresata();
 public:
-    //AdresatMenedzer(string nazwaPlikuZAdresatami):nazwaPlikuZAdresatami(nazwaPlikuZAdresatami) {};
+    //AdresatMenedzer(string nazwaPlikuZAdresatami):plikZAdresatami(nazwaPlikuZAdresatami) {};
 
     int dodajAdresata();
     void wypiszWszystkichAdresatow();
+    void wczytajAdresatowZPliku();
 
 };
