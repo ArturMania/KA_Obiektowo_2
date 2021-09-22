@@ -16,14 +16,14 @@ class PlikZUzytkownikami {
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
+
 public:
     //LISTA INICJALIZACYJNA, INNY RODZAJ "KONSTRUKTORA"
     PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI): nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};
 
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
-    //ZWRACANIE WEKTORA Z FUNKCJI
-    vector<Uzytkownik> wczytajUzytkownikowZPliku();
-
     void zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik>&uzytkownicy);
 
+    //ZWRACANIE WEKTORA Z FUNKCJI
+    vector<Uzytkownik> wczytajUzytkownikowZPliku();
 };

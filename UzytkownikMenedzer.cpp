@@ -3,7 +3,6 @@
 using namespace std;
 
 void UzytkownikMenedzer::rejestracjaUzytkownika() {
-
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
     uzytkownicy.push_back(uzytkownik);
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
