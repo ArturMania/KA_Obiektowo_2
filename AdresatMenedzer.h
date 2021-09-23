@@ -5,26 +5,27 @@
 #include <sstream>
 
 #include "Adresat.h"
-#include "MetodyPomocnicze.h"
 #include "PlikZAdresatami.h"
+
 
 using namespace std;
 
 class AdresatMenedzer {
 
-    int idOstatniegoAdresata;
     int idZalogowanegoUzytkownika;
     vector <Adresat> adresaci;
     PlikZAdresatami plikZAdresatami;
 
-    Adresat podajDaneNowegoAdresata();
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
     int pobierzIdNowegoAdresata();
     int pobierzIdOstatniegoAdresata();
+    int pobierzidZalogowanegoUzytkownika();
+
 public:
     //AdresatMenedzer(string nazwaPlikuZAdresatami):plikZAdresatami(nazwaPlikuZAdresatami) {};
-
-    int dodajAdresata();
+    void dodajAdresata(int idZalogowanegoUzytkownika);
     void wypiszWszystkichAdresatow();
     void wczytajAdresatowZPliku();
+
 
 };

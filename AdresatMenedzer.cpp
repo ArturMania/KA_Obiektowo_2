@@ -5,15 +5,11 @@ using namespace std;
 void AdresatMenedzer::wczytajAdresatowZPliku() {
     adresaci = plikZAdresatami.wczytajAdresatowZPliku();
 }
-int AdresatMenedzer::pobierzIdOstatniegoAdresata() {
-    return idOstatniegoAdresata=adresaci.size();
-}
 
-Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
+Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika) {
     Adresat adresat;
-
     adresat.ustawId(pobierzIdNowegoAdresata());
-    adresat.ustawIdUzytkownika(1);
+    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
@@ -41,18 +37,15 @@ int AdresatMenedzer::pobierzIdNowegoAdresata() {
         return adresaci.back().pobierzId() + 1;
 }
 
-int AdresatMenedzer::dodajAdresata() {
+void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika) {
     Adresat adresat;
 
-    system("cls");
-    cout<<"ID Uzytkownika: "<<1<<endl;
+    cout<<endl<<"ID Uzytkownika: "<<idZalogowanegoUzytkownika<<endl;
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata();
+    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
 
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
-
-    return idOstatniegoAdresata++;
 }
 
 void AdresatMenedzer::wypiszWszystkichAdresatow() {

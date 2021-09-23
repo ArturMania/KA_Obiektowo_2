@@ -21,13 +21,21 @@ void KsiazkaAdresowa::wylogowanieUzytkownika() {
     uzytkownikMenedzer.wylogowanieUzytkownika();
 }
 
+int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika() {
+    uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+}
+
+void KsiazkaAdresowa::wczytajUzytkownikowZPliku() {
+    uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+}
+
 //ADRESAT
 void KsiazkaAdresowa::wczytajAdresatowZPliku() {
     adresatMenedzer.wczytajAdresatowZPliku();
 }
 
-void KsiazkaAdresowa::dodajAdresata() {
-    adresatMenedzer.dodajAdresata();
+void KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika) {
+    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
 }
 
 void KsiazkaAdresowa::wypiszWszystkichAdresatow() {

@@ -7,6 +7,7 @@ using namespace std;
 
 class KsiazkaAdresowa {
 
+    int izZalogowanegoUzytkownika;
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer adresatMenedzer;
     PlikZAdresatami plikZAdresatami;
@@ -22,14 +23,16 @@ public:
     //adresatMenedzer.wczytajAdresatowZPliku();
     //};
 
-    void rejestracjaUzytkownika();
     int logowanieUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
+    void wczytajUzytkownikowZPliku();
+    void rejestracjaUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wylogowanieUzytkownika();
 
-
+    int idZalogowanegoUzytkownika();
     void wczytajAdresatowZPliku();
-    void dodajAdresata();
+    void dodajAdresata(int idZalogowanegoUzytkownika);
     void wypiszWszystkichAdresatow();
 };

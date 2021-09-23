@@ -1,3 +1,6 @@
+#ifndef PLIKZUZYTKOWNIKAMI_H
+#define PLIKZUZYTKOWNIKAMI_H
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -11,7 +14,7 @@ using namespace std;
 
 class PlikZUzytkownikami {
     // TWORZENIE STA£EJ GLOBALNEJ, WYMAGA LISTY INICJALIZACYJNEJ, CZYLI SPECYFICZNEGO KONSTRUKTORA
-    const string nazwaPlikuZUzytkownikami;
+    string nazwaPlikuZUzytkownikami;
 
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
@@ -27,3 +30,4 @@ public:
     //ZWRACANIE WEKTORA Z FUNKCJI
     vector<Uzytkownik> wczytajUzytkownikowZPliku();
 };
+#endif
