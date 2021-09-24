@@ -22,14 +22,18 @@ class UzytkownikMenedzer {
     bool czyIstniejeLogin(string login);
 
 public:
-    //LISTA INICJALIZACYJNA-PRZESY£ANIE STA£EJ NAZWY PLIKU POMIEDZY KLASAMI
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
+    //LISTA INICJALIZACYJNA-PRZESY£ANIE STA£EJ NAZWY PLIKU POMIEDZY KLASAMI/Konstruktor
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+        idZalogowanegoUzytkownika=0;
+    };
 
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
+    bool czyUzytkownikJestZalogowany();
+    //void wczytajUzytkownikowZPliku();
     int wylogowanieUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);

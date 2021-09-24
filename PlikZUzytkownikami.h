@@ -14,7 +14,7 @@ using namespace std;
 
 class PlikZUzytkownikami {
     // TWORZENIE STA£EJ GLOBALNEJ, WYMAGA LISTY INICJALIZACYJNEJ, CZYLI SPECYFICZNEGO KONSTRUKTORA
-    string nazwaPlikuZUzytkownikami;
+    const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;
 
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
@@ -22,7 +22,7 @@ class PlikZUzytkownikami {
 
 public:
     //LISTA INICJALIZACYJNA, INNY RODZAJ "KONSTRUKTORA"
-    PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI): nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};
+    PlikZUzytkownikami(string nazwaPlikuZUzytkownikami): NAZWA_PLIKU_Z_UZYTKOWNIKAMI(nazwaPlikuZUzytkownikami){};
 
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     void zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik>&uzytkownicy);

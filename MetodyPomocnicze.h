@@ -12,6 +12,7 @@ public:
 
 //STWORZENIE METODY STATYCZNEJ:
    static string konwerjsaIntNaString(int liczba);
+   static int konwersjaStringNaInt(string liczba);
    static string wczytajLinie();
 };
 #endif
