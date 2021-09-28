@@ -43,3 +43,7 @@ void KsiazkaAdresowa::dodajAdresata() {
 void KsiazkaAdresowa::wypiszWszystkichAdresatow() {
     adresatMenedzer->wypiszWszystkichAdresatow();
 }
+
+void KsiazkaAdresowa::usunAdresata(){
+adresatMenedzer->usunAdresata();
+}

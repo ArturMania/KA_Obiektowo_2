@@ -37,7 +37,7 @@ int main() {
                 ksiazkaAdresowa.wypiszWszystkichAdresatow();
                 break;
             case '5':
-                exit(0);
+                ksiazkaAdresowa.usunAdresata();
                 break;
             case '6':
                 exit(0);

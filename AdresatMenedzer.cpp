@@ -34,6 +34,13 @@ int AdresatMenedzer::pobierzIdNowegoAdresata() {
         return adresaci.back().pobierzId() + 1;
 }
 
+int AdresatMenedzer::podajIdWybranegoAdresata() {
+    int idWybranegoAdresata=0;
+    cout<<"Podaj ID Adresata: ";
+    idWybranegoAdresata=MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::wczytajLinie());
+    return idWybranegoAdresata;
+}
+
 void AdresatMenedzer::dodajAdresata() {
     Adresat adresat;
     system("cls");
@@ -49,8 +56,48 @@ void AdresatMenedzer::dodajAdresata() {
     system("pause");
 }
 
+int AdresatMenedzer::usunAdresata() {
+    vector<Adresat>adresaci;
+    adresaci=plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    int idUsuwanegoAdresata = 0;
+    int numerLiniiUsuwanegoAdresata = 0;
+
+    system("cls");
+    cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
+    idUsuwanegoAdresata = podajIdWybranegoAdresata();
+
+    char znak;
+    bool czyIstniejeAdresat = false;
+
+    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+        if (itr -> pobierzId() == idUsuwanegoAdresata) {
+            czyIstniejeAdresat = true;
+            cout << endl << "Potwierdz naciskajac klawisz 't': ";
+            znak = MetodyPomocnicze::wczytajZnak();
+            if (znak == 't') {
+                plikZAdresatami.usunWybranaLinieWPliku(idUsuwanegoAdresata);
+                adresaci.erase(itr);
+                cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
+                system("pause");
+                return idUsuwanegoAdresata;
+            } else {
+                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                system("pause");
+                return 0;
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false) {
+        cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
+        system("pause");
+    }
+
+}
+
 void AdresatMenedzer::wypiszWszystkichAdresatow() {
     system("cls");
+    vector<Adresat>adresaci;
+    adresaci=plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     for(int i=0; i<adresaci.size(); i++) {
         cout<<"ID:              "<<adresaci[i].pobierzId()<<endl;
         //cout<<adresaci[i].pobierzIdUzytkownika()<<endl;
@@ -60,5 +107,5 @@ void AdresatMenedzer::wypiszWszystkichAdresatow() {
         cout<<"Email:           "<<adresaci[i].pobierzEmail()<<endl;
         cout<<"Adres:           "<<adresaci[i].pobierzAdres()<<endl<<endl;
     }
-     system("pause");
+    system("pause");
 }
