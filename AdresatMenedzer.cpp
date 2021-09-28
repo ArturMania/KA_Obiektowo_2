@@ -7,7 +7,7 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;
     adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
     adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
-
+    system("cls");
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
 
@@ -36,7 +36,7 @@ int AdresatMenedzer::pobierzIdNowegoAdresata() {
 
 void AdresatMenedzer::dodajAdresata() {
     Adresat adresat;
-
+    system("cls");
     cout<<endl<<"ID Uzytkownika: "<<ID_ZALOGOWANEGO_UZYTKOWNIKA<<endl;
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
     adresat = podajDaneNowegoAdresata();
@@ -50,6 +50,7 @@ void AdresatMenedzer::dodajAdresata() {
 }
 
 void AdresatMenedzer::wypiszWszystkichAdresatow() {
+    system("cls");
     for(int i=0; i<adresaci.size(); i++) {
         cout<<"ID:              "<<adresaci[i].pobierzId()<<endl;
         //cout<<adresaci[i].pobierzIdUzytkownika()<<endl;
@@ -59,4 +60,5 @@ void AdresatMenedzer::wypiszWszystkichAdresatow() {
         cout<<"Email:           "<<adresaci[i].pobierzEmail()<<endl;
         cout<<"Adres:           "<<adresaci[i].pobierzAdres()<<endl<<endl;
     }
+     system("pause");
 }

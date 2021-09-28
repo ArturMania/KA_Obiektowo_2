@@ -15,7 +15,15 @@ int MetodyPomocnicze::konwersjaStringNaInt(string liczba){
 }
 
 string MetodyPomocnicze::wczytajLinie() {
+    cin.sync();
     string wejscie = "";
     getline(cin, wejscie);
     return wejscie;
+}
+
+char MetodyPomocnicze::wczytajZnak(){
+cin.sync();
+char znak;
+cin>>znak;
+return znak;
 }

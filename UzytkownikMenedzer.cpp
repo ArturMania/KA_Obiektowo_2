@@ -14,6 +14,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
 
     Uzytkownik uzytkownik;
     string login,haslo;
+    system("cls");
     uzytkownik.ustawID(pobierzIdNowegoUzytkownika());
     do {
         cout << "Podaj login: ";
@@ -58,9 +59,9 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow() {
 
 int UzytkownikMenedzer::logowanieUzytkownika() {
     string login="", haslo="";
-    cout << endl << "Podaj login: ";
-    //login = MetodyPomocnicze::wczytajLinie();
-    cin>>login;
+    system("cls");
+    cout <<"Podaj login: ";
+    login = MetodyPomocnicze::wczytajLinie();
     for(int i=0; i<uzytkownicy.size(); i++) {
         if (uzytkownicy[i].pobierzLogin() == login) {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--) {

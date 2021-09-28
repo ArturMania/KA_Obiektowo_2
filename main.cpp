@@ -21,9 +21,8 @@ int main() {
             cout<<"7. Zmiana hasla"<<endl;
             cout<<"8. Wyloguj sie"<<endl;
             cout<<"9. Zakoncz program"<<endl;
-            cout<<"ID uzytkownika: "<<idZalogowanegoUzytkownika<<endl;
             cout<<"Twoj wybor: ";
-            cin>>znak;
+            znak=MetodyPomocnicze::wczytajZnak();
             switch(znak) {
             case '1':
                 ksiazkaAdresowa.dodajAdresata();
@@ -36,6 +35,7 @@ int main() {
                 break;
             case '4':
                 ksiazkaAdresowa.wypiszWszystkichAdresatow();
+                break;
             case '5':
                 exit(0);
                 break;
@@ -52,25 +52,26 @@ int main() {
                 exit(0);
                 break;
             }
-        } else
+        } else {
             system("cls");
-        cout<<"Witaj w Twojej ksiazce adresowej!"<<endl;
-        cout<<"1. Logowanie"<<endl;
-        cout<<"2. Rejestracja"<<endl;
-        cout<<"9. Zakoncz program"<<endl;
-        cout<<"ID zalogowanego uzytkownika:"<<idZalogowanegoUzytkownika<<endl;
-        cout<<"Twoj wybor: ";
-        cin>>znak;
-        switch(znak) {
-        case '1':
-            idZalogowanegoUzytkownika=ksiazkaAdresowa.logowanieUzytkownika();
-            break;
-        case '2':
-            ksiazkaAdresowa.rejestracjaUzytkownika();
-            break;
-        case '9':
-            exit(0);
-            break;
+            cout<<"Witaj w Twojej ksiazce adresowej!"<<endl;
+            cout<<"1. Logowanie"<<endl;
+            cout<<"2. Rejestracja"<<endl;
+            cout<<"9. Zakoncz program"<<endl;
+
+            cout<<"Twoj wybor: ";
+            znak=MetodyPomocnicze::wczytajZnak();
+            switch(znak) {
+            case '1':
+                ksiazkaAdresowa.logowanieUzytkownika();
+                break;
+            case '2':
+                ksiazkaAdresowa.rejestracjaUzytkownika();
+                break;
+            case '9':
+                exit(0);
+                break;
+            }
         }
     }
 
