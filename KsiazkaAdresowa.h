@@ -1,3 +1,6 @@
+#ifndef KSIAZKAADRESOWA_H
+#define KSIAZKAADRESOWA_H
+
 #include <iostream>
 
 #include "UzytkownikMenedzer.h"
@@ -7,32 +10,32 @@ using namespace std;
 
 class KsiazkaAdresowa {
 
-    int izZalogowanegoUzytkownika;
     UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenedzer adresatMenedzer;
-    PlikZAdresatami plikZAdresatami;
+//ZASTOSOWANIE WSKAZNIKA KLASY, ABY PRZESLAC ZMIENNA Z INNEJ KLASY
+    AdresatMenedzer *adresatMenedzer;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
     //LISTA INICJALIZACYJNA-PRZESY£ANIE STA£EJ NAZWY PLIKU POMIEDZY KLASAMI
     //W CIELE KONSTRUKTORA ZOSTALA METODA NA WCZYTYWANIE UZYTKOWNIKOW
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {
-        uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
+        : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+        adresatMenedzer=NULL;
     };
-
-    //KsiazkaAdresowa(string nazwaPlikuZAdresatami) : adresatMenedzer(nazwaPlikuZAdresatami) {
-    //adresatMenedzer.wczytajAdresatowZPliku();
-    //};
-
+    ~KsiazkaAdresowa() {
+        delete adresatMenedzer;
+        adresatMenedzer=NULL;
+    };
+//Uzytkownik
     int logowanieUzytkownika();
-    int pobierzIdZalogowanegoUzytkownika();
-    void wczytajUzytkownikowZPliku();
     void rejestracjaUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wylogowanieUzytkownika();
-
-    int idZalogowanegoUzytkownika();
-    void wczytajAdresatowZPliku();
-    void dodajAdresata(int idZalogowanegoUzytkownika);
+    bool czyUzytkownikJestZalogowany();
+//Adresat
+    void dodajAdresata();
     void wypiszWszystkichAdresatow();
 };
+#endif

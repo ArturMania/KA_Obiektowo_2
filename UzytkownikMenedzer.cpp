@@ -56,16 +56,11 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow() {
     }
 }
 
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
-    // ZWRACANIE WERKTORA UZYTKOWNICY PRZEZ FUNKCJE
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
-
 int UzytkownikMenedzer::logowanieUzytkownika() {
     string login="", haslo="";
     cout << endl << "Podaj login: ";
-    login = MetodyPomocnicze::wczytajLinie();
-
+    //login = MetodyPomocnicze::wczytajLinie();
+    cin>>login;
     for(int i=0; i<uzytkownicy.size(); i++) {
         if (uzytkownicy[i].pobierzLogin() == login) {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
@@ -105,11 +100,19 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
-int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika(){
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
     cout<<"ID zalogowanego uzytkownika: "<<idZalogowanegoUzytkownika<<endl<<endl;
     return idZalogowanegoUzytkownika;
 }
 
-int UzytkownikMenedzer::wylogowanieUzytkownika(){
-return idZalogowanegoUzytkownika=0;
+int UzytkownikMenedzer::wylogowanieUzytkownika() {
+    return idZalogowanegoUzytkownika=0;
+}
+
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany() {
+    idZalogowanegoUzytkownika=pobierzIdZalogowanegoUzytkownika();
+    if(idZalogowanegoUzytkownika>0)
+        return true;
+    else
+        return false;
 }
