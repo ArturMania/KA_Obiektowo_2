@@ -1,11 +1,7 @@
-
 #include "AdresatMenedzer.h"
 
 using namespace std;
 
-//void AdresatMenedzer::wczytajAdresatowZPliku() {
-//    adresaci = plikZAdresatami.wczytajAdresatowZPliku();
-//}
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;

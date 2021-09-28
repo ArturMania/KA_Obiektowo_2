@@ -27,16 +27,14 @@ public:
         delete adresatMenedzer;
         adresatMenedzer=NULL;
     };
-
+//Uzytkownik
     int logowanieUzytkownika();
-    int pobierzIdZalogowanegoUzytkownika();
-    //void wczytajUzytkownikowZPliku();
     void rejestracjaUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wylogowanieUzytkownika();
-
-    void wczytajAdresatowZPliku();
+    bool czyUzytkownikJestZalogowany();
+//Adresat
     void dodajAdresata();
     void wypiszWszystkichAdresatow();
 };

@@ -31,8 +31,5 @@ public:
     };
     void dodajAdresata();
     void wypiszWszystkichAdresatow();
-    //void wczytajAdresatowZPliku();
-
-
 };
 #endif

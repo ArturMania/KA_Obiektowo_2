@@ -7,19 +7,95 @@ using namespace std;
 
 int main() {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt","KsiazkaAdresowa.txt");
-
-    //ksiazkaAdresowa.rejestracjaUzytkownika();
-    ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika();
-    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-    ksiazkaAdresowa.logowanieUzytkownika();
-    //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    //ksiazkaAdresowa.wylogowanieUzytkownika();
-    ksiazkaAdresowa.wypiszWszystkichAdresatow();
-    ksiazkaAdresowa.dodajAdresata();
-    ksiazkaAdresowa.wypiszWszystkichAdresatow();
+    char znak;
+    int idZalogowanegoUzytkownika=0;
+    while(true) {
+        if(ksiazkaAdresowa.czyUzytkownikJestZalogowany()) {
+            system("cls");
+            cout<<"1. Dodaj Adresata"<<endl;
+            cout<<"2. Wyszukiwanie po Imieniu"<<endl;
+            cout<<"3. Wyszukiwanie po Nazwisku"<<endl;
+            cout<<"4. Wyswietl wszystkie kontakty"<<endl;
+            cout<<"5. Usun adresata"<<endl;
+            cout<<"6. Edytuj adresata"<<endl;
+            cout<<"7. Zmiana hasla"<<endl;
+            cout<<"8. Wyloguj sie"<<endl;
+            cout<<"9. Zakoncz program"<<endl;
+            cout<<"ID uzytkownika: "<<idZalogowanegoUzytkownika<<endl;
+            cout<<"Twoj wybor: ";
+            cin>>znak;
+            switch(znak) {
+            case '1':
+                ksiazkaAdresowa.dodajAdresata();
+                break;
+            case '2':
+                exit(0);
+                break;
+            case '3':
+                exit(0);
+                break;
+            case '4':
+                ksiazkaAdresowa.wypiszWszystkichAdresatow();
+            case '5':
+                exit(0);
+                break;
+            case '6':
+                exit(0);
+                break;
+            case '7':
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                break;
+            case '8':
+                ksiazkaAdresowa.wylogowanieUzytkownika();
+                break;
+            case '9':
+                exit(0);
+                break;
+            }
+        } else
+            system("cls");
+        cout<<"Witaj w Twojej ksiazce adresowej!"<<endl;
+        cout<<"1. Logowanie"<<endl;
+        cout<<"2. Rejestracja"<<endl;
+        cout<<"9. Zakoncz program"<<endl;
+        cout<<"ID zalogowanego uzytkownika:"<<idZalogowanegoUzytkownika<<endl;
+        cout<<"Twoj wybor: ";
+        cin>>znak;
+        switch(znak) {
+        case '1':
+            idZalogowanegoUzytkownika=ksiazkaAdresowa.logowanieUzytkownika();
+            break;
+        case '2':
+            ksiazkaAdresowa.rejestracjaUzytkownika();
+            break;
+        case '9':
+            exit(0);
+            break;
+        }
+    }
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

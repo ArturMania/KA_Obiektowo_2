@@ -26,16 +26,11 @@ void KsiazkaAdresowa::wylogowanieUzytkownika() {
     adresatMenedzer=NULL;
 }
 
-int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika() {
-    uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
+    uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 }
 
-
 //ADRESAT
-//void KsiazkaAdresowa::wczytajAdresatowZPliku() {
-//    adresatMenedzer.wczytajAdresatowZPliku();
-//}
-
 void KsiazkaAdresowa::dodajAdresata() {
     if(uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
         adresatMenedzer->dodajAdresata();

@@ -33,7 +33,6 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
     bool czyUzytkownikJestZalogowany();
-    //void wczytajUzytkownikowZPliku();
     int wylogowanieUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
