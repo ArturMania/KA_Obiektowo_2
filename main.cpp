@@ -28,19 +28,19 @@ int main() {
                 ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-                exit(0);
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                exit(0);
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
                 ksiazkaAdresowa.wypiszWszystkichAdresatow();
                 break;
             case '5':
-                exit(0);
+                ksiazkaAdresowa.usunAdresata();
                 break;
             case '6':
-                exit(0);
+                ksiazkaAdresowa.edytujAdresata();
                 break;
             case '7':
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();

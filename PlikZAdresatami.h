@@ -8,11 +8,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "PlikTekstowy.h"
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
-class PlikZAdresatami {
+class PlikZAdresatami : public PlikTekstowy {
 
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
@@ -28,6 +29,8 @@ public:
         idOstatniegoAdresata=0;
     };
 
+    void usunWybranaLinieWPliku(int idAdresata);
+    void edytujWybranaLinieWPliku(Adresat adresat);
     bool dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZPliku();
     vector<Adresat>wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
