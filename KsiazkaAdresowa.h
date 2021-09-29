@@ -38,5 +38,8 @@ public:
     void dodajAdresata();
     void wypiszWszystkichAdresatow();
     void usunAdresata();
+    void edytujAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 };
 #endif

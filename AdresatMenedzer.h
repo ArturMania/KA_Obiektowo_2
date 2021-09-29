@@ -32,6 +32,11 @@ public:
     };
     void dodajAdresata();
     void wypiszWszystkichAdresatow();
+    void wyswietlAdresata(int idAdresata);
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void edytujAdresata();
     int usunAdresata();
+
 };
 #endif

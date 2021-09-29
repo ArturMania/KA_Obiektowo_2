@@ -7,7 +7,7 @@ string MetodyPomocnicze::konwerjsaIntNaString(int liczba) {
     return str;
 }
 
-int MetodyPomocnicze::konwersjaStringNaInt(string liczba){
+int MetodyPomocnicze::konwersjaStringNaInt(string liczba) {
     int liczbaInt;
     istringstream iss(liczba);
     iss>>liczbaInt;
@@ -21,9 +21,19 @@ string MetodyPomocnicze::wczytajLinie() {
     return wejscie;
 }
 
-char MetodyPomocnicze::wczytajZnak(){
-cin.sync();
-char znak;
-cin>>znak;
-return znak;
+char MetodyPomocnicze::wczytajZnak() {
+    cin.sync();
+    char znak;
+    cin>>znak;
+    return znak;
+}
+
+string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
+{
+    if (!tekst.empty())
+    {
+        transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
+        tekst[0] = toupper(tekst[0]);
+    }
+    return tekst;
 }

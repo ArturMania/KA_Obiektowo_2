@@ -56,6 +56,75 @@ void AdresatMenedzer::dodajAdresata() {
     system("pause");
 }
 
+void AdresatMenedzer::edytujAdresata() {
+    system("cls");
+    Adresat adresat;
+    int idEdytowanegoAdresata = 0;
+    int numerLiniiEdytowanegoAdresata = 0;
+    string liniaZDanymiAdresata = "";
+
+    cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;
+    idEdytowanegoAdresata = podajIdWybranegoAdresata();
+
+    char wybor;
+    bool czyIstniejeAdresat = false;
+
+    for (int i = 0; i < adresaci.size(); i++) {
+        if (adresaci[i].pobierzId() == idEdytowanegoAdresata) {
+            czyIstniejeAdresat = true;
+
+            cout << "Ktore dane zaktualizowac: " << endl;
+            cout << "1 - Imie" << endl;
+            cout << "2 - Nazwisko" << endl;
+            cout << "3 - Numer telefonu" << endl;
+            cout << "4 - Email" << endl;
+            cout << "5 - Adres" << endl;
+            cout << "6 - Powrot " << endl;
+            cout << endl << "Twoj wybor: ";
+
+            wybor=MetodyPomocnicze::wczytajZnak();
+            switch (wybor) {
+            case '1':
+                cout << "Podaj nowe imie: ";
+                adresaci[i].ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie()));
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresaci[i]);
+                break;
+            case '2':
+                cout << "Podaj nowe nazwisko: ";
+
+                adresaci[i].ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie()));
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresaci[i]);
+                break;
+            case '3':
+                cout << "Podaj nowy numer telefonu: ";
+                adresaci[i].ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresaci[i]);
+                break;
+            case '4':
+                cout << "Podaj nowy email: ";
+                adresaci[i].ustawEmail(MetodyPomocnicze::wczytajLinie());
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresaci[i]);
+                break;
+            case '5':
+                cout << "Podaj nowy adres zamieszkania: ";
+                adresaci[i].ustawAdres(MetodyPomocnicze::wczytajLinie());
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresaci[i]);
+                break;
+            case '6':
+                cout << endl << "Powrot do menu uzytkownika" << endl << endl;
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu! Powrot do menu uzytkownika." << endl << endl;
+                break;
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false) {
+        cout << endl << "Nie ma takiego adresata." << endl << endl;
+    }
+    system("pause");
+}
+
 int AdresatMenedzer::usunAdresata() {
     vector<Adresat>adresaci;
     adresaci=plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
@@ -94,13 +163,68 @@ int AdresatMenedzer::usunAdresata() {
 
 }
 
+void AdresatMenedzer::wyszukajAdresatowPoImieniu() {
+    string imiePoszukiwanegoAdresata = "";
+
+    system("cls");
+    if (!adresaci.empty()) {
+        cout << ">>> WYSZUKIWANIE ADRESATOW O IMIENIU <<<" << endl << endl;
+
+        cout << "Wyszukaj adresatow o imieniu: ";
+        imiePoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie());
+
+        for (vector <Adresat>::iterator  itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+            if (itr -> pobierzImie() == imiePoszukiwanegoAdresata) {
+                wyswietlAdresata(itr->pobierzId()-1);
+            }
+        }
+    } else {
+        cout << endl << "Ksiazka adresowa jest pusta" << endl << endl;
+    }
+    cout << endl;
+    system("pause");
+}
+
+void AdresatMenedzer::wyszukajAdresatowPoNazwisku() {
+    string nazwiskoPoszukiwanegoAdresata;
+    int iloscAdresatow = 0;
+
+    system("cls");
+    if (!adresaci.empty()) {
+        cout << ">>> WYSZUKIWANIE ADRESATOW O NAZWISKU <<<" << endl << endl;
+
+        cout << "Wyszukaj adresatow o nazwisku: ";
+        nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyPomocnicze::wczytajLinie());
+
+        for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+            if (itr -> pobierzNazwisko() == nazwiskoPoszukiwanegoAdresata) {
+                wyswietlAdresata(itr->pobierzId()-1);
+            }
+        }
+    } else {
+        cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
+    }
+    cout << endl;
+    system("pause");
+}
+
+void AdresatMenedzer::wyswietlAdresata(int idAdresata) {
+    vector<Adresat>adresaci;
+    adresaci=plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    cout<<"ID:              "<<adresaci[idAdresata].pobierzId()<<endl;
+    cout<<"Imie:            "<<adresaci[idAdresata].pobierzImie()<<endl;
+    cout<<"Nazwisko:        "<<adresaci[idAdresata].pobierzNazwisko()<<endl;
+    cout<<"Numer Telefonu:  "<<adresaci[idAdresata].pobierzNumerTelefonu()<<endl;
+    cout<<"Email:           "<<adresaci[idAdresata].pobierzEmail()<<endl;
+    cout<<"Adres:           "<<adresaci[idAdresata].pobierzAdres()<<endl<<endl;
+}
+
 void AdresatMenedzer::wypiszWszystkichAdresatow() {
     system("cls");
     vector<Adresat>adresaci;
     adresaci=plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     for(int i=0; i<adresaci.size(); i++) {
         cout<<"ID:              "<<adresaci[i].pobierzId()<<endl;
-        //cout<<adresaci[i].pobierzIdUzytkownika()<<endl;
         cout<<"Imie:            "<<adresaci[i].pobierzImie()<<endl;
         cout<<"Nazwisko:        "<<adresaci[i].pobierzNazwisko()<<endl;
         cout<<"Numer Telefonu:  "<<adresaci[i].pobierzNumerTelefonu()<<endl;
