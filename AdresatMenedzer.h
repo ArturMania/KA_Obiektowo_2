@@ -32,7 +32,7 @@ public:
     };
     void dodajAdresata();
     void wypiszWszystkichAdresatow();
-    void wyswietlAdresata(int idAdresata);
+    void wyswietlAdresata(Adresat adresat);
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
     void edytujAdresata();

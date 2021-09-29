@@ -7,16 +7,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "PlikTekstowy.h"
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
 
-class PlikZUzytkownikami {
+class PlikZUzytkownikami: public PlikTekstowy  {
     // TWORZENIE STA£EJ GLOBALNEJ, WYMAGA LISTY INICJALIZACYJNEJ, CZYLI SPECYFICZNEGO KONSTRUKTORA
     const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;
 
-    bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 

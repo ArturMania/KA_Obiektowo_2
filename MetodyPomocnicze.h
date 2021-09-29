@@ -17,5 +17,7 @@ public:
    static string wczytajLinie();
    static char wczytajZnak();
    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+   static void zmienNazwePliku(string staraNazwa,string nowaNazwa);
+   static void usunPlik(string nazwaPliku);
 };
 #endif

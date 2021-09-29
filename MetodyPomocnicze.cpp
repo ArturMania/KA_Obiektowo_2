@@ -37,3 +37,10 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
     }
     return tekst;
 }
+
+void MetodyPomocnicze::zmienNazwePliku(string staraNazwa,string nowaNazwa) {
+    rename(staraNazwa.c_str(),nowaNazwa.c_str());
+}
+void MetodyPomocnicze::usunPlik(string nazwaPliku) {
+    remove(nazwaPliku.c_str());
+}
