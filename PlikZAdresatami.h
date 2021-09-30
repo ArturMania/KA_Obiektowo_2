@@ -15,7 +15,7 @@
 using namespace std;
 class PlikZAdresatami : public PlikTekstowy {
 
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
+    // string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
@@ -25,9 +25,12 @@ class PlikZAdresatami : public PlikTekstowy {
     int pobierzIdUzytkownikaZDanychOdzielonychPionowymiKreskami(string daneJednegoAdresataOdzielonePionowymiKreskami);
 
 public:
-    PlikZAdresatami(string nazwaPlikuZAdresatami): NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
-        idOstatniegoAdresata=0;
+    PlikZAdresatami(string nazwaPliku):PlikTekstowy(nazwaPliku){
+    idOstatniegoAdresata=0;
     };
+    //PlikZAdresatami(string NAZWA_PLIKU_Z_ADRESATAMI): PlikTekstowy(NAZWA_PLIKU_Z_ADRESATAMI) {
+    //    idOstatniegoAdresata=0;
+    //};
 
     void usunWybranaLinieWPliku(int idAdresata);
     void edytujWybranaLinieWPliku(Adresat adresat);
